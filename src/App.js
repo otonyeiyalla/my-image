@@ -39,7 +39,7 @@ class App extends Component {
     const imageData = await this.apiCall(search)
     this.setState({
       imageData: imageData
-    }) 
+    })
   }
 
   componentDidMount() {
@@ -55,7 +55,7 @@ class App extends Component {
 
 
   render() {
-    console.log('the image in render ',this.state.imageData);
+    console.log('the image in render ', this.state.imageData);
     return (
       <div className="App">
         <Welcome onChange={this.handleChange}

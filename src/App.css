@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  /* background-color: aqua; */
-  background-image: url('./background.jpg');
+ /*  background-color: red; */
+  background-image: url("./background.jpg");
 }
 
 .App-logo {

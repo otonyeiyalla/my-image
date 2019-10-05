@@ -10,6 +10,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SearchIcon from '@material-ui/icons/Search';
 import ImageCard from './ImageCard';
+import './Welcome.css'
 //import Dashboard from './Dashboard';
 //import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -114,8 +115,8 @@ export default function Welcome({ onChange, theImage }) {
     }
 
     return (
-       
-            <div className={classes.root}>
+
+        <div className={classes.root}>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -175,7 +176,7 @@ export default function Welcome({ onChange, theImage }) {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <div>
+                <div className="the-search">
                     <Typography variant="overline">
                         Hi ! <br /> Search for your next Wallpaper
                         </Typography>
@@ -185,46 +186,64 @@ export default function Welcome({ onChange, theImage }) {
 
 
                     <Input
+                        className="the-search"
                         id="search-all"
                         label="Search"
                         //value={searchvalue}
                         onChange={onChange}
-                        startAdornment={<InputAdornment position="start"><SearchIcon /></InputAdornment>}
+                        startAdornment={<InputAdornment position="start" className="the-search"><SearchIcon /></InputAdornment>}
                     />
 
 
                 </div>
-                <br/>
-                <div>
-                    <Grid container className={classes.root} spacing={2}>
-                        {img !== undefined ?
-                            img.map(data => (
+                <br />
+                <div className="grid-container">
+                    {/* <Grid container className={classes.root} spacing={2}> */}
+                    {img !== undefined ?
 
-                                ((data.height < data.width) ?
-                                    <Grid className={classes.item} key={data.id} item>
+                        img.map(data => (
 
-                                        < ImageCard key={data.id}
-                                            image={data.urls.regular}
-                                            name={data.user.name}
-                                            description={data.description}
-                                            alt_description={data.alt_description}
-                                            ig={data.user.instagram_username}
-                                            total={data.user.total_photos}
-                                        />
-                                    </Grid> : '')
+                            ((data.height < data.width) ?
+                                <div key={data.id} className="grid-item-landscape">
+                                    < ImageCard key={data.id}
+                                        image={data.urls.small}
+                                        name={data.user.name}
+                                        description={data.description}
+                                        alt_description={data.alt_description}
+                                        ig={data.user.instagram_username}
+                                        total={data.user.total_photos}
+                                    />
+                                </div>
+
+                                : <div key={data.id} className="grid-item">
+                                    < ImageCard key={data.id}
+
+                                        image={data.urls.small}
+                                        name={data.user.name}
+                                        description={data.description}
+                                        alt_description={data.alt_description}
+                                        ig={data.user.instagram_username}
+                                        total={data.user.total_photos}
+                                    />
+                                </div>)
+
+                            //<Grid className={classes.item} key={data.id} item>
+
+
+                            // </Grid> 
 
 
 
 
-                            ))
+                        ))
 
-                            : ""}
-                    </Grid>
+                        : ""}
+                    {/* </Grid> */}
                 </div>
                 {/* <Route path="/dashboard" component={Dashboard} /> */}
             </main>
         </div>
-       
-        
+
+
     );
 }

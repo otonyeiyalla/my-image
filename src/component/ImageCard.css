@@ -1,0 +1,9 @@
+.card-layout{
+    display: grid;
+    
+}
+
+.MuiCardMedia-media {
+    width: 100%;
+    object-fit: none;
+}

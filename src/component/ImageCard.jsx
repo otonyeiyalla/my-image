@@ -6,11 +6,15 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
+import './ImageCard.css';
 
 const useStyles = makeStyles({
     card: {
-        minWidth: 175,
+        //minWidth: 175,
         //maxWidth: "100%",
+        overflow: 'hidden',
+        height: 'fit-content',
+        paddingBottom: 'inherit'
     },
     title: {
         fontSize: 14,
@@ -24,8 +28,11 @@ const useStyles = makeStyles({
         color: "white"
     },
     media: {
-        height: '56.25%'
+        //height: '56.25%',
+        height: 'auto',
+        width: 'auto'
         //paddingTop: '56.25%', // 16:9
+        //objectFit: "none"
     },
 });
 
@@ -58,12 +65,13 @@ export default function ImageCard({ image, description, alt_description, name, i
         <Card className={classes.card}>
 
             <CardMedia
-                className={classes.media}
+                //className={classes.media}
+                className="card-layout"
                 component="img"
                 image={image}
                 title={alt_description}
             />
-            <CardContent>
+{/*             <CardContent>
 
                 <div>
                     <Tooltip title="options">
@@ -119,7 +127,7 @@ export default function ImageCard({ image, description, alt_description, name, i
                 </Grid>
 
 
-            </CardContent>
+            </CardContent> */}
         </Card>
     );
 

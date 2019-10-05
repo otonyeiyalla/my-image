@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class DashBoard extends Component {
     //state = {  }
-    render() { 
+    render() {
         return (<div> The dashboard
-             </div> );
+             </div>);
     }
 }
- 
+
 export default DashBoard;
