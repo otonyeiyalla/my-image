@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Welcome from './component/Welcome'
+import Header from './component/Header'
 import Unsplash, { toJson } from 'unsplash-js';
 //import React from 'react';
 //import logo from './logo.svg';
@@ -58,7 +58,7 @@ class App extends Component {
     console.log('the image in render ', this.state.imageData);
     return (
       <div className="App">
-        <Welcome onChange={this.handleChange}
+        <Header onChange={this.handleChange}
           theImage={this.state.imageData} />
       </div>
     );

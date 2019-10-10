@@ -1,16 +1,15 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, AppBar, Toolbar, List, CssBaseline, Grid } from '@material-ui/core';
+import { Drawer, AppBar, Toolbar, List, CssBaseline } from '@material-ui/core';
 import { Typography, Divider, IconButton, ListItem, ListItemIcon } from '@material-ui/core';
-import { ListItemText, Input, InputAdornment } from '@material-ui/core';
+import { ListItemText } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import SearchIcon from '@material-ui/icons/Search';
-import ImageCard from './ImageCard';
-import './Welcome.css'
+import ImageList from './ImageList';
+import Search from './Search';
 //import Dashboard from './Dashboard';
 //import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -89,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Welcome({ onChange, theImage }) {
+export default function Header({ onChange, theImage }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -103,15 +102,7 @@ export default function Welcome({ onChange, theImage }) {
     }
 
     if ((theImage.length !== 0 && theImage.constructor !== Object)) {
-        console.log('the ', theImage[0].height)
         var img = theImage
-
-        /* var img = theImage[0].urls.regular
-        var des = theImage[0].description
-        var name = theImage[0].user.name
-        var alt_description = theImage[0].alt_description
-        var ig = theImage[0].user.instagram_username
-        var total = theImage[0].user.total_photos */
     }
 
     return (
@@ -139,7 +130,7 @@ export default function Welcome({ onChange, theImage }) {
 
                     <Typography align="center" variant="h4" >
                         The Wallpaper Guru
-          </Typography>
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -176,71 +167,9 @@ export default function Welcome({ onChange, theImage }) {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <div className="the-search">
-                    <Typography variant="overline">
-                        Hi ! <br /> Search for your next Wallpaper
-                        </Typography>
-                    <Divider />
-
-
-
-
-                    <Input
-                        className="the-search"
-                        id="search-all"
-                        label="Search"
-                        //value={searchvalue}
-                        onChange={onChange}
-                        startAdornment={<InputAdornment position="start" className="the-search"><SearchIcon /></InputAdornment>}
-                    />
-
-
-                </div>
+                <Search handleChange={onChange} />
                 <br />
-                <div className="grid-container">
-                    {/* <Grid container className={classes.root} spacing={2}> */}
-                    {img !== undefined ?
-
-                        img.map(data => (
-
-                            ((data.height < data.width) ?
-                                <div key={data.id} className="grid-item-landscape">
-                                    < ImageCard key={data.id}
-                                        image={data.urls.small}
-                                        name={data.user.name}
-                                        description={data.description}
-                                        alt_description={data.alt_description}
-                                        ig={data.user.instagram_username}
-                                        total={data.user.total_photos}
-                                    />
-                                </div>
-
-                                : <div key={data.id} className="grid-item">
-                                    < ImageCard key={data.id}
-
-                                        image={data.urls.small}
-                                        name={data.user.name}
-                                        description={data.description}
-                                        alt_description={data.alt_description}
-                                        ig={data.user.instagram_username}
-                                        total={data.user.total_photos}
-                                    />
-                                </div>)
-
-                            //<Grid className={classes.item} key={data.id} item>
-
-
-                            // </Grid> 
-
-
-
-
-                        ))
-
-                        : ""}
-                    {/* </Grid> */}
-                </div>
-                {/* <Route path="/dashboard" component={Dashboard} /> */}
+                <ImageList images={img} />
             </main>
         </div>
 

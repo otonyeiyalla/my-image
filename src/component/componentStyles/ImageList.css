@@ -8,18 +8,14 @@
 
 .grid-item{
     padding: 5%;
-   /*  display: grid;   */
 }
 
 .grid-item-landscape{
     padding: 5%;
-   /*  display: grid;  */
     grid-column-end: span 2; 
 }
 
-.the-search{
-    color: white;
-}
+
 @media (min-width: 600px) {
     /* For tablets: */
     .grid-container{
@@ -29,6 +25,7 @@
         /* grid-template-columns: repeat(auto-fill, minmax(240px, 2fr)); */
         grid-auto-flow: dense;
     }
+
   }
 
   @media (min-width: 768px) {
@@ -40,4 +37,5 @@
         /* grid-template-columns: repeat(auto-fill, minmax(240px, 2fr)); */
         grid-auto-flow: dense;
     }
+
   }

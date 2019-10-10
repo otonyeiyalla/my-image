@@ -1,12 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia } from '@material-ui/core';
-import { Menu, Grid, Typography } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import MenuItem from '@material-ui/core/MenuItem';
-import './ImageCard.css';
+import { Card, CardMedia } from '@material-ui/core';
+import './componentStyles/ImageCard.css';
+import ImageDetail from './ImageDetails';
 
 const useStyles = makeStyles({
     card: {
@@ -53,17 +49,13 @@ export default function ImageCard({ image, description, alt_description, name, i
         setAnchorEl(null);
     }
 
-
-
     function handleToggle(isPickerVisibleValue) {
         setToggleState(isPickerVisibleValue)
         setAnchorEl(null);
     }
     //console.log("the url ", raw)
     return (
-
         <Card className={classes.card}>
-
             <CardMedia
                 //className={classes.media}
                 className="card-layout"
@@ -71,63 +63,20 @@ export default function ImageCard({ image, description, alt_description, name, i
                 image={image}
                 title={alt_description}
             />
-{/*             <CardContent>
+            <ImageDetail
+            onToggle = {handleToggle}
+            onClose = {handleClose}
+            onClick = {handleClick}
+            anchorEl = {anchorEl}
+            open ={open}
+            isPickerVisible={isPickerVisible}
+            description={description}
+            alt_description={alt_description}
+            name={name}
+            ig={ig}
+            total={total}
+            />
 
-                <div>
-                    <Tooltip title="options">
-                        <IconButton aria-label="Settings"
-                            aria-controls="long-menu"
-                            aria-haspopup="true"
-                            onClick={handleClick}
-                        >
-                            <MoreVertIcon />
-
-
-                        </IconButton>
-                    </Tooltip>
-                    <Menu
-                        id="long-menu"
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={open}
-                        onClose={handleClose}
-
-                        getContentAnchorEl={null}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                    >
-                        <MenuItem onClick={() => handleToggle(true)}>Expand</MenuItem>
-                        <MenuItem onClick={() => handleToggle(false)}>Remove</MenuItem>
-                    </Menu>
-                </div>
-
-
-                <br />
-                <Grid item md={"auto"}>
-                    {isPickerVisible ?
-
-                        <div>
-                            <span>The Photographer: {name.toUpperCase()}</span><br />
-                            <span>Instagram: {ig}</span><br />
-                            <span>Total Number of Photos by Photographer: {total}</span>
-                        </div>
-                        :
-                        <Typography variant="body2" component="div">
-                            {((description === null)? "": description.toUpperCase())}
-
-                        </Typography>
-
-                    }
-                </Grid>
-
-
-            </CardContent> */}
         </Card>
     );
 
