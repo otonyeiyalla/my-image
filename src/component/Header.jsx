@@ -10,6 +10,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ImageList from './ImageList';
 import Search from './Search';
+import PropTypes from 'prop-types';
 //import Dashboard from './Dashboard';
 //import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -107,7 +108,7 @@ export default function Header({ onChange, theImage }) {
 
     return (
 
-        <div className={classes.root}>
+        <div className={classes.root} data-test="headerComponent">
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -175,4 +176,12 @@ export default function Header({ onChange, theImage }) {
 
 
     );
+}
+
+Header.propTypes = {
+    onChange: PropTypes.func,
+    theImage: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array
+    ])
 }

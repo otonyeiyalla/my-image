@@ -6,6 +6,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
+import PropTypes from 'prop-types';
 
 class ImageDetail extends Component {
     constructor(props) {
@@ -13,29 +14,31 @@ class ImageDetail extends Component {
         this.state = {}
     }
     render() {
+        const {
+            name, description, 
+            alt_description, ig, 
+            total, onClick, anchorEl, 
+            onToggle, open, onClose, 
+            isPickerVisible } = this.props;
         return (
-            <React.Fragment>
-
+            <div data-test="ImgDetailComponent">
                 <CardContent>
-
                     <div>
                         <Tooltip title="options">
                             <IconButton aria-label="Settings"
                                 aria-controls="long-menu"
                                 aria-haspopup="true"
-                                onClick={this.props.onClick}
+                                onClick={onClick}
                             >
                                 <MoreVertIcon />
-
-
                             </IconButton>
                         </Tooltip>
                         <Menu
                             id="long-menu"
-                            anchorEl={this.props.anchorEl}
+                            anchorEl={anchorEl}
                             keepMounted
-                            open={this.props.open}
-                            onClose={this.props.Close}
+                            open={open}
+                            onClose={onClose}
 
                             getContentAnchorEl={null}
                             anchorOrigin={{
@@ -47,39 +50,48 @@ class ImageDetail extends Component {
                                 horizontal: 'right',
                             }}
                         >
-                            <MenuItem onClick={() => this.props.onToggle(true)}>Expand</MenuItem>
-                            <MenuItem onClick={() => this.props.onToggle(false)}>Remove</MenuItem>
+                            <MenuItem onClick={() => onToggle(true)}>Expand</MenuItem>
+                            <MenuItem onClick={() => onToggle(false)}>Remove</MenuItem>
                         </Menu>
                     </div>
-
-
                     <br />
                     <Grid item md={"auto"}>
-                        {this.props.isPickerVisible ?
+                        {isPickerVisible ?
 
                             <div>
-                                <span>The Photographer: {this.props.name.toUpperCase()}</span><br />
-                                <span>Instagram: {this.props.ig}</span><br />
-                                <span>Total Number of Photos by Photographer: {this.props.total}</span>
+                                <span>The Photographer: {name.toUpperCase()}</span><br />
+                                <span>Instagram: {ig}</span><br />
+                                <span>Total Number of Photos by Photographer: {total}</span>
                             </div>
                             :
                             <Typography variant="body2" component="div">
-                                {((this.props.description === null) ? 
-                                ((this.props.alt_description !== null) ?
-                                this.props.alt_description.toUpperCase() :
+                                {((description === null) ? 
+                                ((alt_description !== null) ?
+                                alt_description.toUpperCase() :
                                 "") 
-                                : this.props.description.toUpperCase())}
-
+                                : description.toUpperCase())}
                             </Typography>
-
                         }
                     </Grid>
 
 
                 </CardContent>
-            </React.Fragment>
+            </div>
         );
     }
 }
 
 export default ImageDetail;
+
+ImageDetail.propTypes = {
+    description: PropTypes.string,
+    alt_description: PropTypes.string,
+    name: PropTypes.string,
+    ig: PropTypes.string,
+    total: PropTypes.number,
+    anchorEl: PropTypes.any,
+    onToggle: PropTypes.func,
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
+    isPickerVisible: PropTypes.bool
+}

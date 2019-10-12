@@ -55,7 +55,7 @@ class App extends Component {
 
 
   render() {
-    console.log('the image in render ', this.state.imageData);
+    //console.log('the image in render ', this.state.imageData);
     return (
       <div className="App">
         <Header onChange={this.handleChange}

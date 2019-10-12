@@ -3,6 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Input, InputAdornment } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import './componentStyles/Search.css';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
     constructor(props){
@@ -36,5 +37,8 @@ class Search extends Component {
          );
     }
 }
- 
+
+Search.propTypes = {
+    onChange: PropTypes.func
+}
 export default Search;

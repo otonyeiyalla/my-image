@@ -1,17 +1,13 @@
-
 .the-search{
     color: gold;
     font-size: 100%;
 }
-
 input[type=text]{
     color: gold;
 }
-
 .search-line{
     border-bottom: 1px solid gold;
 }
-
 @media (min-width: 600px) {
     /* For tablets: */
     .the-search{
@@ -19,7 +15,6 @@ input[type=text]{
         font-size: 200%;
     }
   }
-
   @media (min-width: 768px) {
     /* For desktop: */
     .the-search{

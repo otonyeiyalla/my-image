@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ImageCard from './ImageCard';
 import './componentStyles/ImageList.css'
+import PropTypes from 'prop-types';
 
 class ImageList extends Component {
     constructor(props) {
@@ -42,5 +43,10 @@ class ImageList extends Component {
         </div>);
     }
 }
-
+ImageList.propTypes = {
+    
+    imageData: PropTypes.arrayOf(
+        PropTypes.object  
+    )
+}
 export default ImageList;

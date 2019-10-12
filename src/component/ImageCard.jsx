@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia } from '@material-ui/core';
 import './componentStyles/ImageCard.css';
 import ImageDetail from './ImageDetails';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     card: {
@@ -80,4 +81,13 @@ export default function ImageCard({ image, description, alt_description, name, i
         </Card>
     );
 
+}
+
+ImageCard.propTypes = {
+    image: PropTypes.string,
+    description: PropTypes.string,
+    alt_description: PropTypes.string,
+    name: PropTypes.string,
+    ig: PropTypes.string,
+    total: PropTypes.number 
 }
