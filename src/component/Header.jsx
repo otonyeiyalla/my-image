@@ -3,29 +3,26 @@ import PropTypes from 'prop-types';
 import Search from './Search';
 import ImageList from './ImageList';
 import './componentStyles/Header.css'
-
 class Header extends Component {
     constructor(props) {
         super(props)
-        this.state ={}
-        
+        this.state ={}  
     }
     render() { 
         const {onChange, theImage} = this.props
-
         if ((theImage.length !== 0 && theImage.constructor !== Object)) {
             var img = theImage
         }
         return (
             <div data-test="headerComponent">
-                <div className="Header">
-                    <h1>Welcome to the Wallpaper Gurus</h1>
+                <div className ="subheader">
+                    <div className="Header">
+                        <h1>Welcome to the Wallpaper Gurus</h1>
+                    </div>
+                    <Search handleChange={onChange} />
                 </div>
                 
-
-               
-                <div />
-                <Search handleChange={onChange} />
+                
                 <br />
                 <ImageList images={img}
                  />
@@ -34,7 +31,6 @@ class Header extends Component {
         );
     }
 }
-
 Header.propTypes = {
     onChange: PropTypes.func,
     theImage: PropTypes.oneOfType([
@@ -42,5 +38,4 @@ Header.propTypes = {
         PropTypes.array
     ])
 }
- 
 export default Header;

@@ -1,7 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Header from './Header';
-import checkPropTypes from 'check-prop-types';
+import Header from '../Header';
+//import checkPropTypes from 'check-prop-types';
+import {findByTestArr, checkProps} from '../../../Utils/testUtils'
 
 
 const setUp = (props={}) => {
@@ -9,14 +10,11 @@ const setUp = (props={}) => {
     return component
 }
 
-const findByTestArr = (component, attr) => {
+/* const findByTestArr = (component, attr) => {
     const wrapper = component.find(`[data-test='${attr}']`);
     return wrapper;
-}
-/* let component;
-beforeEach(() => {
-    component = setUp();
-}); */
+} */
+
 describe('Header Component', () => {
 
     describe('Checking PropTypes', () => {
@@ -25,7 +23,7 @@ describe('Header Component', () => {
                 onChange: jest.fn(),
                 theImage: { }
             };
-            const propsErr = checkPropTypes(Header.propTypes, expectedProps, 'props', Header.name);
+            const propsErr = checkProps(Header, expectedProps);
             expect(propsErr).toBeUndefined();
         });
         
