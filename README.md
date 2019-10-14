@@ -1,6 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## What I learned from this project
+
+1. Testing using Jest and React Enzyme
+2. To build a better responsive web page using grid template and media queries
+3. Optimizing a website using critical rendering path
+4. Building a more accessible website with the help of aria and other accessibility features
+5. Making json calls to an api and manipulating the data received
+6. Verifying data recieved using PropTypes
+
+##  What packages used
+
+1. Jest
+2. React Enzyme
+3. React chart 2
+4. prop-types
+5. Material Ui (core and icon)
+6. unsplash-js
+7. check-prop-types
 
 In the project directory, you can run:
 
