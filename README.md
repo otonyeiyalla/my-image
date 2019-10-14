@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. Building a more accessible website with the help of aria and other accessibility features
 5. Making json calls to an api and manipulating the data received
 6. Verifying data recieved using PropTypes
+7. Using react hooks
 
 ##  What packages used
 
