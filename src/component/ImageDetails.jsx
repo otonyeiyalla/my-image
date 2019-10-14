@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 import { CardContent } from '@material-ui/core';
-import { Menu, Grid, Typography } from '@material-ui/core';
+import { Menu } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
+import './componentStyles/ImageDetails.css';
+import Chart from './Chart';
 
 class ImageDetail extends Component {
     constructor(props) {
@@ -19,13 +21,15 @@ class ImageDetail extends Component {
             alt_description, ig, 
             total, onClick, anchorEl, 
             onToggle, open, onClose, 
-            isPickerVisible } = this.props;
+            isPickerVisible, likes,
+            collections
+        } = this.props;
         return (
             <div data-test="ImgDetailComponent">
-                <CardContent>
+                <CardContent className="detailContainer">
                     <div>
                         <Tooltip title="options">
-                            <IconButton aria-label="Settings"
+                            <IconButton aria-label="button"
                                 aria-controls="long-menu"
                                 aria-haspopup="true"
                                 onClick={onClick}
@@ -39,6 +43,7 @@ class ImageDetail extends Component {
                             keepMounted
                             open={open}
                             onClose={onClose}
+                            role="button"
 
                             getContentAnchorEl={null}
                             anchorOrigin={{
@@ -54,25 +59,36 @@ class ImageDetail extends Component {
                             <MenuItem onClick={() => onToggle(false)}>Remove</MenuItem>
                         </Menu>
                     </div>
-                    <br />
-                    <Grid item md={"auto"}>
+                    
+                    <div>
                         {isPickerVisible ?
 
-                            <div>
-                                <span>The Photographer: {name.toUpperCase()}</span><br />
-                                <span>Instagram: {ig}</span><br />
-                                <span>Total Number of Photos by Photographer: {total}</span>
-                            </div>
+                            <Chart collections={collections}
+                                    likes={likes}
+                                    total={total}
+                            />
+                            
                             :
-                            <Typography variant="body2" component="div">
+                            <div>
+                                <span aria-label = "The Photographer name"><b>
+                                    The Photographer:</b> {name.toUpperCase()}
+                                </span><br/>
+                                <span aria-label = "Instagram handle"><b>
+                                    Instagram:</b> {ig}
+                                </span><br/>
+                                <span aria-label = "Total number of photos by photographer"><b>
+                                    Total Number of Photos by Photographer:</b> {total}
+                                </span><br/>
+                                <span aria-label = "Description"><b>Description:</b>
                                 {((description === null) ? 
                                 ((alt_description !== null) ?
                                 alt_description.toUpperCase() :
                                 "") 
                                 : description.toUpperCase())}
-                            </Typography>
+                                </span>
+                            </div>
                         }
-                    </Grid>
+                    </div>
 
 
                 </CardContent>

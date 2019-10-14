@@ -1,0 +1,12 @@
+.detailContainer {
+    display: grid;
+    grid-template-columns: 2fr;
+}
+
+
+@media (min-width: 600px){
+    .detailContainer {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}

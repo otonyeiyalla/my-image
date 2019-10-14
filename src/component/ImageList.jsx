@@ -24,6 +24,8 @@ class ImageList extends Component {
                                 alt_description={data.alt_description}
                                 ig={data.user.instagram_username}
                                 total={data.user.total_photos}
+                                collection={data.user.total_collections}
+                                likes={data.user.total_likes}
                                 
                             />
                         </div>
@@ -36,6 +38,8 @@ class ImageList extends Component {
                                 alt_description={data.alt_description}
                                 ig={data.user.instagram_username}
                                 total={data.user.total_photos}
+                                collections={data.user.total_collections}
+                                likes={data.user.total_likes}
                             />
                         </div>)
                 ))

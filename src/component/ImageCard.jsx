@@ -33,7 +33,8 @@ const useStyles = makeStyles({
     },
 });
 
-export default function ImageCard({ image, description, alt_description, name, ig, total }) {
+export default function ImageCard({ image, description, alt_description,
+    name, ig, total, collections, likes }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -65,17 +66,19 @@ export default function ImageCard({ image, description, alt_description, name, i
                 title={alt_description}
             />
             <ImageDetail
-            onToggle = {handleToggle}
-            onClose = {handleClose}
-            onClick = {handleClick}
-            anchorEl = {anchorEl}
-            open ={open}
-            isPickerVisible={isPickerVisible}
-            description={description}
-            alt_description={alt_description}
-            name={name}
-            ig={ig}
-            total={total}
+                onToggle={handleToggle}
+                onClose={handleClose}
+                onClick={handleClick}
+                anchorEl={anchorEl}
+                open={open}
+                isPickerVisible={isPickerVisible}
+                description={description}
+                alt_description={alt_description}
+                name={name}
+                ig={ig}
+                total={total}
+                collections={collections}
+                likes={likes}
             />
 
         </Card>
@@ -89,5 +92,5 @@ ImageCard.propTypes = {
     alt_description: PropTypes.string,
     name: PropTypes.string,
     ig: PropTypes.string,
-    total: PropTypes.number 
+    total: PropTypes.number
 }
