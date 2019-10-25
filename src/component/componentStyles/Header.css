@@ -6,12 +6,22 @@
    
 }
 
-.subheader {
-    /* border-bottom-left-radius: 50% 100%;
-    border-bottom-right-radius: 50% 100%; */
+/* .subheader {
     background: repeating-linear-gradient(45deg, black, transparent 100px);
     padding-bottom: 2%;
     
-  }
+  } */
 
+  .Header::before{
+    content: ' ';
+    display: block;
+    padding: 1%;
+    background-color: lightgoldenrodyellow;   
+}
+.Header::after{
+    content: ' ';
+    display: block;
+    padding: 1%;
+    background-color: lightgoldenrodyellow;   
+}
   

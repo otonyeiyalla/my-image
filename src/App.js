@@ -15,7 +15,7 @@ class App extends Component {
     search: '',
   };
   apiCall = async (search) => {
-    const response = await unsplash.search.photos(search, 1, 16);
+    const response = await unsplash.search.photos(search, 1);
     const responseJson = await toJson(response);
     return responseJson.results;
   }
