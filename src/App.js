@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './component/Header'
 import Unsplash, { toJson } from 'unsplash-js';
+import dotenv from 'dotenv';
+dotenv.config()
 
 const unsplash = new Unsplash({
-  applicationId: 'd7ede08a92e54cb8cfd11d53091743019430fc57816163094d2358bf200c5bae',
-  secret: 'd18603babdfca045866b8e2410d6713fe4c5b0e2012f96398f1f89240192e1ca',
-  callbackUrl: "http://localhost:3000"
-});
+  applicationId: process.env.REACT_APP_ACCESS_KEY,
+  secret: process.env.REACT_APP_CLIENT_SECRET,
+  callbackUrl: process.env.REACT_APP_redirect_uri
+}, ()=> console.log("here"));
+
+
+  
 class App extends Component {
 
   state = {

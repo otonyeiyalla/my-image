@@ -10,6 +10,7 @@ class Header extends Component {
     }
     render() { 
         const {onChange, theImage} = this.props
+        //const theImage = this.props.theImage || []
         if ((theImage.length !== 0 && theImage.constructor !== Object)) {
             var img = theImage
         }

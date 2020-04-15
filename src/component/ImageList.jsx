@@ -13,8 +13,8 @@ class ImageList extends Component {
         const imageData = this.props.images;
         return (
         <div className="grid-container" aria-label="Images in grid form">
-            {imageData !== undefined ?
-                imageData.map(data => (
+            {
+                (imageData || []).map(data => (
                     ((data.height < data.width) ?
                         <div key={data.id} className="grid-item-landscape">
                             < ImageCard key={data.id}
@@ -43,7 +43,7 @@ class ImageList extends Component {
                             />
                         </div>)
                 ))
-                : ""}
+            }
         </div>);
     }
 }
